@@ -17,19 +17,6 @@ public class Function101Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
-			FunctionCatalog catalog = ctx.getBean(FunctionCatalog.class);
-			Function<String, Integer> func = catalog.lookup("strLength");
-			System.out.println(func.apply("Hello"));
-			System.out.println("==============");
-
-			Function<String, String> upperFunc = catalog.lookup("toUpperCase");
-			System.out.println(upperFunc.apply("world!"));
-		};
-	}
-
-	@Bean
 	public Function<String, Integer> strLength() {
 		return str -> str.length();
 	}
